@@ -40,21 +40,16 @@ public class Emprestimo {
      * @return String com dados do empréstimo
      */
     public String realizaEmprestimo() {
-        if (concedeEmprestimo())
-            return "Cliente: " + nome + "\n" +
-                    "Salário: R$ " + salario + "\n" +
-                    "Valor pedido para empréstimo: R$ " + valorEmprestimo + "\n" +
-                    "Quantidade de parcelas: " + parcelas + "x\n" +
-                    "Valor final: R$ " + valorFinal() + "\n" +
-                    "Valor da parcela: R$ " + valorFinal() / parcelas + "\n" +
-                    "EMPRÉSTIMO CONCEDIDO";
-        return "Cliente: " + nome + "\n" +
+        String dados = "Cliente: " + nome + "\n" +
                 "Salário: R$ " + salario + "\n" +
                 "Valor pedido para empréstimo: R$ " + valorEmprestimo + "\n" +
                 "Quantidade de parcelas: " + parcelas + "x\n" +
-                "Valor final: R$ " + valorFinal() + "\n" +
-                "Valor da parcela: R$ " + valorFinal() / parcelas + "\n" +
-                "EMPRÉSTIMO NÃO CONCEDIDO";
+                "Taxa: " + taxa + "% a.m\n" +
+                "Valor final: R$ " + String.format("%.2f",valorFinal()) + "\n" +
+                "Valor da parcela: R$ " + String.format("%.2f",valorFinal() / parcelas) + "\n";
+        if (concedeEmprestimo())
+            return dados + "EMPRÉSTIMO CONCEDIDO";
+        return dados + "EMPRÉSTIMO NÃO CONCEDIDO";
     }
 
 }

@@ -46,7 +46,7 @@ public class Locadora {
         if (periodoLocacao <= 12)
             return "Nome: " + nome + "\n" +
                     "Período de locação: " + periodoLocacao + " horas\n" +
-                    "Valor a ser pago: R$ " + calculaValorTaxa();
+                    "Valor a ser pago: R$ " + String.format("%.2f",calculaValorTaxa());
         else
             return "Nome: " + nome + "\n" +
                     "Período de locação: " + ((periodoLocacao / 24) + 1) + " dias\n" +
